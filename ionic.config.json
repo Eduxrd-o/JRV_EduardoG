@@ -1,0 +1,7 @@
+{
+  "name": "jrv-eduardog",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
