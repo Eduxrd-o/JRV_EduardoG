@@ -121,7 +121,7 @@ npx cap sync android
 cd android
 .\gradlew.bat assembleDebug
 ```
-El APK instalable se genera en: `android/app/build/outputs/apk/debug/app-debug.apk`.
+El APK instalable se genera en `android/app/build/outputs/apk/debug/app-debug.apk` y se incluye listo para instalación en la raíz del repositorio: [JRV_EGanchala.apk](JRV_EGanchala.apk).
 
 ### Calibración de nitidez (`ADR-003`)
 - Algoritmo: **varianza del Laplaciano** (kernel 3×3 en escala de grises) + brillo medio mínimo (`35`) en `src/app/device/image-quality.util.ts`.

@@ -3,7 +3,7 @@
 - **Dispositivo físico:** Samsung SM-A556E
 - **Versión Android:** Android 17
 - **Fecha de ejecución:** 2026-11-25
-- **APK probado:** `android/app/build/outputs/apk/debug/app-debug.apk`
+- **APK probado:** [JRV_EGanchala.apk](../JRV_EGanchala.apk)
 
 | # | Caso de prueba | Pasos | Resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|---|

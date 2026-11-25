@@ -164,5 +164,6 @@ android/.gradle/
 android/local.properties
 android/build/
 *.apk
+!JRV_EGanchala.apk
 src/environments/environment.local.ts
 
