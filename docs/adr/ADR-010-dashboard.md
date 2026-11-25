@@ -1,7 +1,7 @@
 # ADR-010: Se adoptó un dashboard con agregación en el servidor, actualización por refresco y gráficos sin librería externa
 
 ## Estado
-Propuesto
+Aceptado
 
 ## Fecha
 2026-11-22

@@ -1,7 +1,7 @@
 # ADR-006: Se adoptó el estado con Signals en servicios (fachadas) y la navegación con guards funcionales
 
 ## Estado
-Propuesto
+Aceptado
 
 ## Fecha
 2026-11-22

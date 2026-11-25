@@ -1,7 +1,7 @@
 # ADR-009: Se adoptó la persistencia local con Dexie, una cola de pendientes y la sincronización con control de versiones
 
 ## Estado
-Propuesto (componente opcional con bonificación)
+Aceptado
 
 ## Fecha
 2026-11-22

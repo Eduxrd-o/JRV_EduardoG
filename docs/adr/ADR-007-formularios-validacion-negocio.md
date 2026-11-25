@@ -1,8 +1,7 @@
 # ADR-007: Se adoptaron formularios reactivos con validadores propios y reglas de negocio en servicios
 
 ## Estado
-Propuesto
-
+Aceptado
 ## Fecha
 2026-11-22
 

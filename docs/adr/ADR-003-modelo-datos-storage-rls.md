@@ -1,7 +1,7 @@
 # ADR-003: Se adoptó un modelo relacional normalizado, almacenamiento privado de fotos y políticas RLS (Seguridad a nivel de fila) por rol
 
 ## Estado
-Propuesto
+Aceptado
 
 ## Fecha
 2026-11-22

@@ -1,8 +1,7 @@
 # ADR-008: Se adoptaron pruebas por capas, gestión centralizada de errores y monitoreo ligero
 
 ## Estado
-Propuesto
-
+Rechazado
 ## Fecha
 2026-11-22
 

@@ -1,7 +1,7 @@
 # ADR-004: Se adoptó una arquitectura por capas con organización por funcionalidades
 
 ## Estado
-Propuesto
+Rechazado
 
 ## Fecha
 2026-11-22

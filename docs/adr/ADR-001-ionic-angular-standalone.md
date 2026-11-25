@@ -1,7 +1,7 @@
-	 # ADR-001: Se adoptó Ionic Angular (standalone) como framework de la aplicación
+# ADR-001: Se adoptó Ionic Angular (standalone) como framework de la aplicación
 
 ## Estado
-Propuesto
+Aceptado
 
 ## Fecha
 2026-11-22

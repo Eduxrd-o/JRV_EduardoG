@@ -1,7 +1,7 @@
 # ADR-005: Se adoptaron Capacitor Camera y Geolocation con comprobación de nitidez en el cliente
 
 ## Estado
-Propuesto
+Rechazado
 
 ## Fecha
 2026-11-22

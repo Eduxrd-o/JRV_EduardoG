@@ -1,7 +1,7 @@
 # ADR-002: Se eligió Supabase como backend, con autenticación por cédula y autorización por rol
 
 ## Estado
-Propuesto
+Aceptado
 
 ## Fecha
 2026-11-22
