@@ -1,2 +1,3 @@
-// ADR-004 / ADR-005: Reglas de negocio puras (cédula ecuatoriana, consistencia de actas, estados de mesa).
-export {};
+export * from './cedula';
+export * from './acta-consistency';
+export * from './mesa-status';
