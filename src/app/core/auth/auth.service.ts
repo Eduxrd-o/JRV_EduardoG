@@ -47,9 +47,11 @@ export class AuthService {
       return;
     }
     if (!this.initPromise) {
-      this.initPromise = this.cargarSesionActual().finally(() => {
-        this._inicializado.set(true);
-      });
+      this.initPromise = this.cargarSesionActual()
+        .then(() => undefined)
+        .finally(() => {
+          this._inicializado.set(true);
+        });
     }
     await this.initPromise;
   }
