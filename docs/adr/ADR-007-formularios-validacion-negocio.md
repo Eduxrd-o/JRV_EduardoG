@@ -52,8 +52,7 @@ Se eligió la alternativa **A**.
 - Aceptación/Rechazo: Aceptado. El equipo incorporará ambos validadores síncronos en los formularios reactivos de la aplicación.
 - Verificación humana: el equipo ejecutará pruebas unitarias con cédulas válidas, inválidas y de longitud incorrecta, y verificará que el validador de grupo detectará inconsistencias al modificar los campos de votos.
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `77dcf26` (reglas puras y validadores) · `6d4f777` (formulario de actas) · `b1e28e0` (recinto)
 
 ## Consenso del equipo
-Pendiente

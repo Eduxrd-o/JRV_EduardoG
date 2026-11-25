@@ -56,8 +56,9 @@ Se eligió **Supabase**.
 - Verificación humana: el equipo creará las tablas en Supabase, habilitará las políticas RLS para los tres roles y comprobará mediante pruebas en `supabase/tests` que cada usuario solo accederá a sus registros permitidos.
 
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `aa14837` (BD/RLS) · `09fb906` (Edge Functions) · `d8d1cb7` (pantallas Auth)
 
 ## Consenso del equipo
-Pendiente
+Supabase
+Aceptado/ ADR Eduardo Ganchala

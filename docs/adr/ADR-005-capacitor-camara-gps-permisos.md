@@ -53,8 +53,9 @@ Se eligió la alternativa **A**.
 - Verificación humana: el equipo realizará pruebas en Android con `@capacitor/camera` y `@capacitor/geolocation` utilizando fotos nítidas, borrosas y escenarios de permisos denegados.
 
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `5cc9a87` (`feat(device): camara/galeria, nitidez Laplaciano, GPS y permisos Capacitor (ADR-003, R7)`)
 
 ## Consenso del equipo
-Pendiente
+Capacitor, Forzar a usar la cámara o subir una foto desde la galería, permitir guardados de actas sin gps con una etiqueta de que la ubicación no es comprobable,acuerdo de umbral y nitidez inicial para usar el algoritmo laplaciano 
+Aceptado/ ADR Josué Ortiz

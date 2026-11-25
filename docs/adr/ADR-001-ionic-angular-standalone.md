@@ -44,8 +44,10 @@ Se eligió **Ionic Angular con componentes standalone** (sin NgModules), con la 
 - Aceptación/Rechazo: Aceptado. El equipo adoptará Ionic Angular standalone para facilitar la validación cruzada y la separación de capas sin añadir librerías externas. 
 - Verificación humana: el equipo creará el proyecto base con `ionic start` en modo standalone, comprobará `"strict": true` en `tsconfig.json` y verificará que `ng build` e `ionic cap sync android` compilarán sin errores.
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `da43c41` (`feat(arch): inicializar Ionic Angular standalone y arquitectura por capas (ADR-001, ADR-004)`)
 
 ## Consenso del equipo
-Pendiente
+
+Ionic Angular Standalone, 
+Aceptado ADR  mutuo

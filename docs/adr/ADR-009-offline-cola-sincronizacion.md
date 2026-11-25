@@ -53,8 +53,9 @@ Se eligió la alternativa **A**.
 - Aceptación/Rechazo: Aceptado parcialmente. El equipo implementará la cola local de sincronización con RxJS y aplicará una política simple de resolución de conflictos acorde al alcance del proyecto. 
 - Verificación humana: el equipo realizará pruebas desconectando la red para verificar el encolado local, el envío automático al reconectar y la prevención de registros duplicados.
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `1afd758` (`feat(offline): cola local con Dexie, fotos en Filesystem y sync con conflictos (ADR-006, R10)`)
 
 ## Consenso del equipo
-Pendiente
+IndexedDB con Dexie para la cola y `@capacitor/filesystem` para las foto
+Aceptado/ ADR Eduardo Ganchala

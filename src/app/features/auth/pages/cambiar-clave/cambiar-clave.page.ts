@@ -19,6 +19,7 @@ import {
   IonHeader,
   IonIcon,
   IonInput,
+  IonInputPasswordToggle,
   IonSpinner,
   IonText,
   IonTitle,
@@ -58,6 +59,7 @@ function clavesCoincidenValidator(group: AbstractControl): ValidationErrors | nu
     IonCardSubtitle,
     IonCardContent,
     IonInput,
+    IonInputPasswordToggle,
     IonSpinner,
     IonText,
   ],
@@ -79,7 +81,7 @@ function clavesCoincidenValidator(group: AbstractControl): ValidationErrors | nu
           <ion-card-header>
             <ion-card-title>Actualización obligatoria</ion-card-title>
             <ion-card-subtitle>
-              Por seguridad (R3), debes reemplazar la contraseña inicial por una nueva de al menos 8 caracteres.
+              Por seguridad, debes reemplazar la contraseña inicial por una nueva de al menos 8 caracteres.
             </ion-card-subtitle>
           </ion-card-header>
 
@@ -95,6 +97,7 @@ function clavesCoincidenValidator(group: AbstractControl): ValidationErrors | nu
                   placeholder="Mínimo 8 caracteres"
                 >
                   <ion-icon slot="start" name="key-outline" aria-hidden="true"></ion-icon>
+                  <ion-input-password-toggle slot="end"></ion-input-password-toggle>
                 </ion-input>
                 @if (mostrarError('nuevaClave')) {
                   <ion-text color="danger" class="field-error">
@@ -119,6 +122,7 @@ function clavesCoincidenValidator(group: AbstractControl): ValidationErrors | nu
                   placeholder="Repite la nueva contraseña"
                 >
                   <ion-icon slot="start" name="key-outline" aria-hidden="true"></ion-icon>
+                  <ion-input-password-toggle slot="end"></ion-input-password-toggle>
                 </ion-input>
                 @if (mostrarError('confirmarClave') || (form.hasError('clavesDistintas') && enviado())) {
                   <ion-text color="danger" class="field-error">

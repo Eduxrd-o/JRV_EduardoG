@@ -57,7 +57,7 @@ import type { EstadoSyncLocal } from '../../../../domain/models';
   template: `
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title>Cola Offline (R10)</ion-title>
+        <ion-title>Actas Pendientes</ion-title>
         <ion-buttons slot="end">
           <ion-button
             (click)="sincronizar()"
@@ -121,8 +121,7 @@ import type { EstadoSyncLocal } from '../../../../domain/models';
 
               @if (item.estado === 'conflicto') {
                 <p class="conflict-help">
-                  Regla ADR-006: prevalece la corrección del coordinador en el servidor, o puedes enviar tu
-                  versión local.
+                  Prevalece la corrección del coordinador en el servidor, o puedes enviar tu versión local.
                 </p>
                 <div class="conflict-actions">
                   <ion-button

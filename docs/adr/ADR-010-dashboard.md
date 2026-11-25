@@ -94,7 +94,9 @@ Se eligió la combinación **A + D + F + H**.
 - Aceptación/Rechazo: Aceptado. El equipo adoptará la combinación de vistas SQL, refresco manual, gráficos nativos con HTML/CSS y enlaces externos para GPS, con el fin de reducir el consumo de datos, evitar dependencias innecesarias y mantener la seguridad en la base de datos.
 - Verificación humana: el equipo ejecutará pruebas SQL para comprobar que `resultados_por_candidato_recinto` coincidirá con la suma manual de las actas de prueba, verificará que RLS restringirá el consolidado al rol provincial y realizará una revisión visual en el APK para validar las barras proporcionales, la tabla y los estados de error y vacío.
 ## Trazabilidad
-- Commit del ADR:   git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: [enlace]
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `3460b50` (`feat(provincial): gestion de recintos, coordinadores y dashboard consolidado (ADR-009, R4)`)
 
 ## Consenso del equipo
+Consumir una API publica para el manejo de gps, contar las actas observadas pero marcarlas, con un filtro para excluirlas.
+Aceptado/ ADR Eduardo Ganchala

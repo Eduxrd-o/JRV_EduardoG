@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Escudo blanco centrado dentro de la zona segura de adaptive icon -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,24 L76,33 L76,53 C76,67 66.5,79.5 54,84 C41.5,79.5 32,67 32,53 L32,33 Z" />
+
+    <!-- Interior azul institucional del escudo -->
+    <path
+        android:fillColor="#1646A8"
+        android:pathData="M54,29 L71,36 L71,52.5 C71,63.5 63.5,73.5 54,77.5 C44.5,73.5 37,63.5 37,52.5 L37,36 Z" />
+
+    <!-- Checkmark dorado electoral -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F5C400"
+        android:strokeWidth="5.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M44.5,53.5 L51.5,60.5 L64.5,46" />
+</vector>

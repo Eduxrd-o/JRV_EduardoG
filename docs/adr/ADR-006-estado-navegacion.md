@@ -59,8 +59,9 @@ Navegación: se definieron rutas con `loadComponent` y los guards funcionales `a
 - Aceptación/Rechazo: Aceptado. El equipo utilizará Signals junto con servicios inyectables y RxJS donde resulte necesario, evitando la complejidad innecesaria de NgRx. 
 - Verificación humana: el equipo validará durante la implementación que los estados explícitos de UI (carga, éxito, error y vacío) responderán correctamente y mantendrán un código claro para la defensa.
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `77dcf26` (`feat(domain): reglas puras, modelo Estado<T>, guardas y manejo de errores`) · `d8d1cb7` (rutas por rol)
 
 ## Consenso del equipo
-Pendiente
+Estado-navegación-Signals 
+Aceptado/ ADR Josué Ortiz

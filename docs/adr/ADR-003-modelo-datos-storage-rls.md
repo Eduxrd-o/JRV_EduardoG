@@ -71,8 +71,9 @@ Políticas RLS:
 - Verificación humana: el equipo revisará la sintaxis SQL de las migraciones y ejecutará pruebas con usuarios de cada rol en `supabase/tests` para confirmar que RLS bloqueará accesos no autorizados.
 
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `aa14837` (`feat(db): esquema relacional, seed R1, políticas RLS y vistas SQL`) · `6d4f777` (repositorios y Storage)
 
 ## Consenso del equipo
-Pendiente 
+Esquema normalizado con votos en tabla hija, con una siembra de datos fijos que ya conoceriamos
+Aceptado/ ADR Eduardo Ganchala

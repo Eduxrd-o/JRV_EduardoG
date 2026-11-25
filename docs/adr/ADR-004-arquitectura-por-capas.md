@@ -63,8 +63,9 @@ Se establecieron las reglas de dependencia: las páginas solo inyectaron servici
 - Verificación humana: el equipo comprobará que la estructura funcionará correctamente con carga diferida (`loadComponent`) y permitirá a los integrantes desarrollar módulos sin conflictos frecuentes de integración.
 
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado — arquitectura por funcionalidad de consenso)
+- Commit de implementación: `da43c41` (`feat(arch): inicializar Ionic Angular standalone y arquitectura por capas (ADR-001, ADR-004)`)
 
 ## Consenso del equipo
-Pendiente
+Arquitectura por capas organizada por funcionalidad y  repositorios 
+Aceptado/ ADR Josué Ortiz

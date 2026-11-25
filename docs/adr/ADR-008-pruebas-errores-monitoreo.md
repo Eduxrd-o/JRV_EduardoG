@@ -56,8 +56,8 @@ Se eligió la combinación **A + C**.
 - Verificación humana: el equipo ejecutará la suite de pruebas antes de cada entrega y comprobará que los errores de red, permisos y validación mostrarán mensajes comprensibles para el usuario.
 
 ## Trazabilidad
-- Commit del ADR: git commit -m "docs(adr): propuestas ADR-001 a ADR-010"
-- Commit de implementación: Pendiente
-
+- Commit del ADR: `9ce4d46` (propuesta) · `57fcfee` (consolidado aceptado)
+- Commit de implementación: `77dcf26` (`GlobalErrorHandler` y `supabase-error.mapper`) · `5266aaa` (`test(all): pruebas en 3 niveles`)
 ## Consenso del equipo
-Pendiente
+Realizar pruebas en base a tres niveles orientados al backend aceptado
+Aceptada/ ADR Josué Ortiz

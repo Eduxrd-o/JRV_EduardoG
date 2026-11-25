@@ -11,6 +11,7 @@ import {
   IonContent,
   IonIcon,
   IonInput,
+  IonInputPasswordToggle,
   IonNote,
   IonSpinner,
   IonText,
@@ -35,6 +36,7 @@ import { cedulaEcuatorianaValidator } from '../../../../shared/validators/electo
     IonCardSubtitle,
     IonCardContent,
     IonInput,
+    IonInputPasswordToggle,
     IonButton,
     IonIcon,
     IonSpinner,
@@ -92,6 +94,7 @@ import { cedulaEcuatorianaValidator } from '../../../../shared/validators/electo
                   placeholder="Ingresa tu contraseña"
                 >
                   <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true"></ion-icon>
+                  <ion-input-password-toggle slot="end"></ion-input-password-toggle>
                 </ion-input>
                 @if (mostrarError('password')) {
                   <ion-text color="danger" class="field-error">La contraseña es obligatoria.</ion-text>
