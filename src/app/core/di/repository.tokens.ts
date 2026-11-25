@@ -9,6 +9,8 @@ import type {
   RecintoRepository,
 } from '../../domain/ports';
 
+import type { OutboxSyncPort } from './offline.port';
+
 /**
  * ADR-004: Tokens de inyección para desacoplar features/services de las implementaciones en data/.
  */
@@ -18,3 +20,4 @@ export const PHOTO_STORAGE_REPOSITORY = new InjectionToken<PhotoStorageRepositor
 export const ACCOUNTS_REPOSITORY = new InjectionToken<AccountsRepository>('ACCOUNTS_REPOSITORY');
 export const RECINTO_REPOSITORY = new InjectionToken<RecintoRepository>('RECINTO_REPOSITORY');
 export const DASHBOARD_REPOSITORY = new InjectionToken<DashboardRepository>('DASHBOARD_REPOSITORY');
+export const OUTBOX_SYNC_PORT = new InjectionToken<OutboxSyncPort>('OUTBOX_SYNC_PORT');

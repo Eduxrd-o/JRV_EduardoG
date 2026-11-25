@@ -541,7 +541,7 @@ export class ActaFormPage implements OnInit {
         votos: Number(raw.votos[index] ?? 0),
       }));
 
-      const guardada = await this.actaService.guardarActa({
+      const resultado = await this.actaService.guardarActa({
         jrv: ctx.jrv,
         dignidad: this.dignidad(),
         votos,
@@ -556,7 +556,11 @@ export class ActaFormPage implements OnInit {
         versionBase: ctx.actaExistente?.version ?? null,
       });
 
-      await this.toast.exito(`Acta registrada (${guardada.estado} · v${guardada.version}).`);
+      if (resultado.sincronizada) {
+        await this.toast.exito(resultado.mensaje);
+      } else {
+        await this.toast.advertencia(resultado.mensaje);
+      }
       void this.mesasStore.cargarMesas();
       await this.router.navigateByUrl(this.rutaRetorno(), { replaceUrl: true });
     } catch (error) {

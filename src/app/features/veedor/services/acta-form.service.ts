@@ -1,7 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 
-import { ACTA_REPOSITORY, JRV_REPOSITORY, PHOTO_STORAGE_REPOSITORY } from '../../../core/di/repository.tokens';
+import {
+  ACTA_REPOSITORY,
+  JRV_REPOSITORY,
+  OUTBOX_SYNC_PORT,
+  PHOTO_STORAGE_REPOSITORY,
+} from '../../../core/di/repository.tokens';
 import { AppError } from '../../../core/errors/app-error.model';
+import { mapSupabaseError } from '../../../core/errors/supabase-error.mapper';
 import { CameraService, type FotoCapturada } from '../../../device/camera.service';
 import { GeolocationService, type ResultadoGps } from '../../../device/geolocation.service';
 import type { Acta, ActaVoto, Candidatura, Dignidad, GpsActa, Jrv } from '../../../domain/models';
@@ -29,15 +35,22 @@ export interface GuardarActaInput {
   versionBase: number | null;
 }
 
+export interface ResultadoGuardadoActa {
+  sincronizada: boolean;
+  acta: Acta | null;
+  mensaje: string;
+}
+
 /**
- * ADR-004 / ADR-005: Servicio de dominio para orquestar el registro y corrección de actas.
- * Reutilizable tanto por Veedor (R6) como por Coordinador de Recinto (R5).
+ * ADR-004 / ADR-005 / ADR-006: Servicio de dominio para orquestar el registro y corrección de actas,
+ * con soporte transparente de encolado offline (R10) cuando no existe conectividad.
  */
 @Injectable({ providedIn: 'root' })
 export class ActaFormService {
   private readonly jrvRepo = inject(JRV_REPOSITORY);
   private readonly actaRepo = inject(ACTA_REPOSITORY);
   private readonly photoRepo = inject(PHOTO_STORAGE_REPOSITORY);
+  private readonly outbox = inject(OUTBOX_SYNC_PORT);
   private readonly camera = inject(CameraService);
   private readonly geolocation = inject(GeolocationService);
 
@@ -72,7 +85,7 @@ export class ActaFormService {
     return this.geolocation.obtenerUbicacionActa();
   }
 
-  async guardarActa(input: GuardarActaInput): Promise<Acta> {
+  async guardarActa(input: GuardarActaInput): Promise<ResultadoGuardadoActa> {
     const evaluacion = evaluarConsistenciaActa({
       votosOrganizaciones: input.votos.map((v) => v.votos),
       nulos: input.nulos,
@@ -87,30 +100,86 @@ export class ActaFormService {
       throw new AppError('VALIDACION', evaluacion.mensaje);
     }
 
-    let fotoPath = input.fotoPathExistente;
-    if (input.nuevaFotoBlob) {
-      fotoPath = await this.photoRepo.subirFotoActa(input.jrv.recintoId, input.jrv.id, input.dignidad, input.nuevaFotoBlob);
-    }
-
-    if (!fotoPath) {
+    if (!input.nuevaFotoBlob && !input.fotoPathExistente) {
       throw new AppError('VALIDACION', 'Debes capturar o subir una fotografía nítida del acta antes de guardar.');
     }
 
-    const clientUuid = crypto.randomUUID();
+    // Ruta offline (R10): si no hay conexión, encolar en Dexie + Filesystem
+    if (!this.outbox.enLinea()) {
+      await this.encolarLocalmente(input);
+      return {
+        sincronizada: false,
+        acta: null,
+        mensaje: 'Sin conexión: acta guardada localmente. Se sincronizará automáticamente al reconectar.',
+      };
+    }
 
-    return this.actaRepo.guardarActa({
+    try {
+      let fotoPath = input.fotoPathExistente;
+      if (input.nuevaFotoBlob) {
+        fotoPath = await this.photoRepo.subirFotoActa(
+          input.jrv.recintoId,
+          input.jrv.id,
+          input.dignidad,
+          input.nuevaFotoBlob,
+        );
+      }
+
+      if (!fotoPath) {
+        throw new AppError('VALIDACION', 'No se pudo obtener la ruta de la fotografía del acta.');
+      }
+
+      const clientUuid = crypto.randomUUID();
+      const acta = await this.actaRepo.guardarActa({
+        jrvId: input.jrv.id,
+        recintoId: input.jrv.recintoId,
+        dignidad: input.dignidad,
+        votos: input.votos,
+        nulos: input.nulos,
+        blancos: input.blancos,
+        totalSufragantes: input.totalSufragantes,
+        fotoPath,
+        gps: input.gps,
+        esInconsistente: input.esInconsistente,
+        observacion: input.observacion,
+        clientUuid,
+        versionBase: input.versionBase,
+      });
+
+      return {
+        sincronizada: true,
+        acta,
+        mensaje: `Acta registrada (${acta.estado} · v${acta.version}).`,
+      };
+    } catch (error) {
+      const appErr = mapSupabaseError(error);
+      if (appErr.codigo === 'SIN_CONEXION') {
+        await this.encolarLocalmente(input);
+        return {
+          sincronizada: false,
+          acta: null,
+          mensaje: 'Conexión interrumpida: acta guardada localmente en cola de pendientes.',
+        };
+      }
+      throw appErr;
+    }
+  }
+
+  private async encolarLocalmente(input: GuardarActaInput): Promise<void> {
+    await this.outbox.encolarActa({
       jrvId: input.jrv.id,
       recintoId: input.jrv.recintoId,
+      jrvNumero: input.jrv.numero,
       dignidad: input.dignidad,
       votos: input.votos,
       nulos: input.nulos,
       blancos: input.blancos,
       totalSufragantes: input.totalSufragantes,
-      fotoPath,
       gps: input.gps,
       esInconsistente: input.esInconsistente,
       observacion: input.observacion,
-      clientUuid,
+      nuevaFotoBlob: input.nuevaFotoBlob,
+      fotoPathExistente: input.fotoPathExistente,
       versionBase: input.versionBase,
     });
   }

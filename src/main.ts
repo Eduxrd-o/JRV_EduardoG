@@ -16,11 +16,13 @@ import {
   ACTA_REPOSITORY,
   DASHBOARD_REPOSITORY,
   JRV_REPOSITORY,
+  OUTBOX_SYNC_PORT,
   PHOTO_STORAGE_REPOSITORY,
   RECINTO_REPOSITORY,
 } from './app/core/di/repository.tokens';
 import { GlobalErrorHandler } from './app/core/errors/global-error.handler';
 import { SupabaseAccountsRepository } from './app/data/functions/supabase-accounts.repository';
+import { OutboxSyncService } from './app/data/offline/outbox-sync.service';
 import { SupabasePhotoStorageRepository } from './app/data/storage/supabase-photo-storage.repository';
 import { SupabaseActaRepository } from './app/data/supabase/supabase-acta.repository';
 import { SupabaseDashboardRepository } from './app/data/supabase/supabase-dashboard.repository';
@@ -37,6 +39,7 @@ bootstrapApplication(AppComponent, {
     { provide: ACCOUNTS_REPOSITORY, useExisting: SupabaseAccountsRepository },
     { provide: RECINTO_REPOSITORY, useExisting: SupabaseRecintoRepository },
     { provide: DASHBOARD_REPOSITORY, useExisting: SupabaseDashboardRepository },
+    { provide: OUTBOX_SYNC_PORT, useExisting: OutboxSyncService },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
   ],

@@ -14,6 +14,11 @@ export const VEEDOR_ROUTES: Routes = [
         loadComponent: () => import('./pages/mis-mesas/mis-mesas.page').then((m) => m.MisMesasPage),
       },
       {
+        path: 'pendientes',
+        loadComponent: () =>
+          import('./pages/pendientes-offline/pendientes-offline.page').then((m) => m.PendientesOfflinePage),
+      },
+      {
         path: '',
         redirectTo: 'mesas',
         pathMatch: 'full',
