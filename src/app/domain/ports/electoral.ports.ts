@@ -1,4 +1,14 @@
-import type { Acta, ActaVoto, Candidatura, Dignidad, GpsActa, Jrv, Perfil, Recinto } from '../models';
+import type {
+  Acta,
+  ActaVoto,
+  Candidatura,
+  DashboardSnapshot,
+  Dignidad,
+  GpsActa,
+  Jrv,
+  Perfil,
+  Recinto,
+} from '../models';
 
 export interface GuardarActaPayload {
   jrvId: string;
@@ -65,4 +75,8 @@ export interface AccountsRepository {
 export interface RecintoRepository {
   listarRecintos(): Promise<Recinto[]>;
   crearRecinto(input: CrearRecintoInput): Promise<Recinto>;
+}
+
+export interface DashboardRepository {
+  cargarSnapshot(): Promise<DashboardSnapshot>;
 }

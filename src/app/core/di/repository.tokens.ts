@@ -3,6 +3,7 @@ import { InjectionToken } from '@angular/core';
 import type {
   AccountsRepository,
   ActaRepository,
+  DashboardRepository,
   JrvRepository,
   PhotoStorageRepository,
   RecintoRepository,
@@ -16,3 +17,4 @@ export const ACTA_REPOSITORY = new InjectionToken<ActaRepository>('ACTA_REPOSITO
 export const PHOTO_STORAGE_REPOSITORY = new InjectionToken<PhotoStorageRepository>('PHOTO_STORAGE_REPOSITORY');
 export const ACCOUNTS_REPOSITORY = new InjectionToken<AccountsRepository>('ACCOUNTS_REPOSITORY');
 export const RECINTO_REPOSITORY = new InjectionToken<RecintoRepository>('RECINTO_REPOSITORY');
+export const DASHBOARD_REPOSITORY = new InjectionToken<DashboardRepository>('DASHBOARD_REPOSITORY');
