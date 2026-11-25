@@ -1,4 +1,4 @@
-import type { Acta, ActaVoto, Candidatura, Dignidad, GpsActa, Jrv } from '../models';
+import type { Acta, ActaVoto, Candidatura, Dignidad, GpsActa, Jrv, Perfil, Recinto } from '../models';
 
 export interface GuardarActaPayload {
   jrvId: string;
@@ -14,6 +14,25 @@ export interface GuardarActaPayload {
   observacion: string;
   clientUuid: string;
   versionBase: number | null;
+}
+
+export interface CrearCuentaInput {
+  cedula: string;
+  nombres: string;
+  apellidos: string;
+  telefono: string;
+  email: string;
+  recintoId?: string;
+}
+
+export interface CrearRecintoInput {
+  provincia: string;
+  canton: string;
+  parroquia: string;
+  nombre: string;
+  numJrv: number;
+  lat: number | null;
+  lng: number | null;
 }
 
 export interface JrvRepository {
@@ -33,4 +52,17 @@ export interface ActaRepository {
 export interface PhotoStorageRepository {
   subirFotoActa(recintoId: string, jrvId: string, dignidad: Dignidad, blob: Blob): Promise<string>;
   obtenerUrlFirmada(fotoPath: string): Promise<string>;
+}
+
+export interface AccountsRepository {
+  listarVeedoresPorRecinto(recintoId: string): Promise<Perfil[]>;
+  listarCoordinadoresRecinto(): Promise<Perfil[]>;
+  crearCoordinadorRecinto(input: CrearCuentaInput): Promise<Perfil>;
+  crearVeedor(input: CrearCuentaInput): Promise<Perfil>;
+  asignarRecintoACoordinador(coordinadorId: string, recintoId: string | null): Promise<void>;
+}
+
+export interface RecintoRepository {
+  listarRecintos(): Promise<Recinto[]>;
+  crearRecinto(input: CrearRecintoInput): Promise<Recinto>;
 }
